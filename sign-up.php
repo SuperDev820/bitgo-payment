@@ -19,11 +19,11 @@
 </head> 
 <body class="multicoin-body">
   <div id="root" class="container">
-    <div class="row justify-content-md-center mt-5">
-      <div class="col-lg-6 col-sm-12 col-md-6 col-md-auto">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;position: relative;">
+      <div class="col-lg-6 col-sm-12 col-md-9 col-md-auto">
         <div class="d-flex justify-content-md-center p-2 w-100 bd-highlight mb-4">
-          <div class="bd-highlight pr-2" style="color: blue;">Coinbase</div>
-          <div class="bd-highlight pl-2" style="border-left: 1px solid #ccc9c9;">Commerce</div>
+          <div class="bd-highlight blue pr-2">coinbase</div>
+          <div class="bd-highlight pl-2" style="border-left: 1px solid #6c757d;">Commerce</div>
         </div>
         <div class="card shadow-sm">
           <div class="card-header bg-white p-3">
@@ -49,6 +49,23 @@
                 <p>Already have an account?</p>
                 <a href="sign-in.php">Log in here</a>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer row justify-content-center">
+        <div class="col-lg-6 col-sm-12 col-md-9">
+          <div class="d-flex justify-content-between py-1" style="border-top: 1px solid #6c757d;">
+            <div>
+              Terms of Service
+            </div>
+            <div>
+              Privacy Policy
+            </div>
+            <div>
+              <span class="pr-1">@ Coinbase</span>
+              <span class="pl-1" style="border-left: 1px solid;">Commerce</span>
             </div>
           </div>
         </div>
