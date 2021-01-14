@@ -73,10 +73,11 @@ $GLOBALS['config'] = array(
         */
         
         'wallet_btc' => '5ea4ba45f6bf288028f386f13840cd32',
-        'wallet_ltc' => '5eaa11339e9657d507b0ab532eeee322',
         'wallet_bch' => '5eaa1110d2beded00769415e076bb771',
         'wallet_dash' => '5ec47e16ed7be31f005487001aa39ff0',
-        'wallet_xlm' => '5ec5c3224ebdb234003132b1b7f39d01',
+        'wallet_eth' => '5ec5c3224ebdb234003132b1b7f39d01',
+        'wallet_ltc' => '5eaa11339e9657d507b0ab532eeee322',
+        // 'wallet_btg' => '5eaa11339e9657d507b0ab532eeee322',
 
 
 
@@ -93,9 +94,10 @@ $GLOBALS['config'] = array(
         'coins'  => array(
           'btc'  => 'Bitcoin',
           'bch'  => 'Bitcoin Cash',
-          'ltc'  => 'Litecoin',
           'dash' => 'Dash',
-          'xlm'  => 'Stellar',
+          'eth'  => 'Ethereum',
+          'ltc'  => 'Litecoin',
+          // 'btg'  => 'Bitcoin Gold',
          ),
 
         

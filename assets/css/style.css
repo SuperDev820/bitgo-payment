@@ -105,3 +105,34 @@ padding-bottom: : 2px;
 input {
 	background: #F2F4F6 !important;
 }
+
+.blue {
+	color: #007bff;
+}
+
+.list-group-item {
+	padding: 10px 0; 
+	border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.main {
+	margin-left: 300px;
+}
+
+ul {
+	list-style: none;
+}
+
+.side-bar {
+	width: 270px;
+	position: fixed;
+}
+
+.side-bar ul {
+	padding-left: 70px;
+}
+
+.side-bar ul li {
+	color: #6c757d;
+	margin-bottom: 14px;
+}

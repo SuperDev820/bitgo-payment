@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Sign Up</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="assets/vendor/fontawesome/css/all.css" rel="stylesheet">
     <link href="assets/vendor/vue-loading-overlay/vue-loading.css" rel="stylesheet">
@@ -26,7 +26,7 @@
           <div class="bd-highlight pl-2" style="border-left: 1px solid #ccc9c9;">Commerce</div>
         </div>
         <div class="card shadow-sm">
-          <div class="card-header p-3">
+          <div class="card-header bg-white p-3">
             <h5 class="card-title m-0 pl-3">Sign Up</h5>
           </div>
           <div class="card-body">
