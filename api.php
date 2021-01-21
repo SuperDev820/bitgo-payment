@@ -113,7 +113,7 @@ if (isset($_GET['amount']) && is_numeric($_GET['amount']) && $_GET['amount'] != 
         "dollar" => $dollar,
         "expiring" => $remTime,
         "coin" => strtoupper($coin),
-        "coin_logo" => 'assets/img/'.$coin.'.png',
+        "coin_logo" => '../assets/img/'.$coin.'.png',
         "fees" => $fees,
         "qrcode" => "https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=bitcoin:" . $payWallet ."&choe=UTF-8",
         "qramount" => "https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=amount=" . $amount . "&choe=UTF-8",
