@@ -1,7 +1,8 @@
 <?php
-
-require '../inc/init.php';
-require '../inc/database.php';
+session_start();
+if(!empty($_SESSION["userId"])) {
+    header('Location: dashboard.php');
+}
 
 ?>
 
@@ -34,20 +35,30 @@ require '../inc/database.php';
             <h5 class="card-title m-0 pl-3">Sign In</h5>
           </div>
           <div class="card-body">
-            <form action="sign-in.php" method="post">
+            <form action="../auth/login-action.php" method="post" onSubmit="return validate();">
               <div class="form-group m-3">
-                <div class="input-group mb-4">
+                <?php 
+                if(isset($_SESSION["errorMessage"])) {
+                ?>
+                <div class="error-message"><?php  echo $_SESSION["errorMessage"]; ?></div>
+                <?php 
+                unset($_SESSION["errorMessage"]);
+                } 
+                ?>
+                <div class=" mb-4">
                   <!-- <div class="input-group-prepend">
                     <div class="input-group-text"><i class="far fa-envelope"></i></div>
                   </div> --> 
-                  <input type="email" name="email" class="form-control" placeholder="Your email address">
+                  <input type="email" name="email" id="email" class="form-control" placeholder="Your email address">
+                  <p id="email_info" class="error-info"></p>
                 </div>
-                <div class="input-group mb-4">
-                  <input type="password" name="password" class="form-control" placeholder="Your password">
+                <div class=" mb-4">
+                  <input type="password" name="password" id="password" class="form-control" placeholder="Your password">
+                  <p id="password_info" class="error-info"></p>
                 </div>
               </div>
               <div class="form-group m-3">
-                <button class="btn btn-primary btn-block" v-on:click="">Sing In</button>
+                <button class="btn btn-primary btn-block" type="submit">Sing In</button>
               </div>
             </form>
             <div class="m-3">
@@ -82,6 +93,32 @@ require '../inc/database.php';
       </div>
     </div>
   </div>
+
+  <script>
+    function validate() {
+      var $valid = true;
+      document.getElementById("email_info").innerHTML = "";
+      document.getElementById("password_info").innerHTML = "";
+      
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      if(email == "") 
+      {
+        document.getElementById("email_info").innerHTML = "required";
+        $valid = false;
+      }
+      if(password == "") 
+      {
+        document.getElementById("password_info").innerHTML = "required";
+        $valid = false;
+      } else if(password.length < 6)
+      {
+        document.getElementById("password_info").innerHTML = "required at least 6 characters";
+        $valid = false;
+      }
+      return $valid;
+    }
+  </script>
   
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

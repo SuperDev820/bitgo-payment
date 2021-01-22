@@ -254,3 +254,15 @@ a:hover {
 	height: 35px;
 	border-radius: 50%;
 }
+.error-info {
+    color: #FF0000;
+    margin-left: 10px;
+}
+.error-message {
+    padding: 7px 10px;
+    background: #fff1f2;
+    border: #ffd5da 1px solid;
+    color: #d6001c;
+    border-radius: 4px;
+    margin: 10px 0;
+}

@@ -1,5 +1,10 @@
 <?php
 
+session_start();
+if(empty($_SESSION["userId"])) {
+    header('Location: sign-in.php');
+}
+
 require '../inc/init.php';
 require '../inc/database.php';
 
@@ -80,7 +85,7 @@ require '../inc/database.php';
         <div class="page-title d-flex justify-content-between w-100 bd-highlight">
           <h2 class="m-0">Settings</h2>
           <div class="pt-3">
-            <a href="sign-out.php">
+            <a href="../auth/sign-out.php">
               <i class="fas fa-sign-out-alt fa-fw"></i>
               <span>Sign out</span>
             </a>

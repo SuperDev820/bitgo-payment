@@ -1,5 +1,10 @@
 <?php
 
+session_start();
+if(!empty($_SESSION["userId"])) {
+    header('Location: dashboard.php');
+}
+
 ?>
 
 <!doctype html>
@@ -30,20 +35,37 @@
             <h5 class="card-title m-0 pl-3">Sign Up</h5>
           </div>
           <div class="card-body">
-            <div class="form-group m-3">
-              <div class="input-group mb-4">
-                <input type="email" name="email" class="form-control" placeholder="Your email address">
+            <form action="../auth/signup-action.php" method="post" onSubmit="return validate();">
+              <div class="form-group m-3">
+                <?php 
+                if(isset($_SESSION["errorMessage"])) {
+                ?>
+                <div class="error-message"><?php  echo $_SESSION["errorMessage"]; ?></div>
+                <?php 
+                unset($_SESSION["errorMessage"]);
+                } 
+                ?>
+                <div class=" mb-4">
+                  <input type="text" name="user_name" id="user_name" class="form-control" placeholder="Your Name">
+                  <p id="user_info" class="error-info"></p>
+                </div>
+                <div class=" mb-4">
+                  <input type="email" name="email" id="email" class="form-control" placeholder="Your email address">
+                  <p id="email_info" class="error-info"></p>
+                </div>
+                <div class=" mb-4">
+                  <input type="password" name="password" id="password" class="form-control" placeholder="Your password">
+                  <p id="password_info" class="error-info"></p>
+                </div>
+                <div class=" mb-4">
+                  <input type="password" name="confirmed" id="confirmed" class="form-control" placeholder="Confirmed password">
+                  <p id="confirmed_info" class="error-info"></p>
+                </div>
               </div>
-              <div class="input-group mb-4">
-                <input type="password" naem="password" class="form-control" placeholder="Your password">
+              <div class="form-group m-3">
+                <button class="btn btn-primary btn-block" v-on:click="">Sing Up</button>
               </div>
-              <div class="input-group mb-4">
-                <input type="password" name="confirmed" class="form-control" placeholder="Confirmed password">
-              </div>
-            </div>
-            <div class="form-group m-3">
-              <button class="btn btn-primary btn-block" v-on:click="">Sing Up</button>
-            </div>
+            </form>
             <div class="m-3">
               <div class="d-flex justify-content-between">
                 <p>Already have an account?</p>
@@ -72,6 +94,46 @@
       </div>
     </div>
   </div>
+
+  <script>
+    function validate() {
+      var $valid = true;
+      document.getElementById("user_info").innerHTML = "";
+      document.getElementById("email_info").innerHTML = "";
+      document.getElementById("password_info").innerHTML = "";
+      document.getElementById("confirmed_info").innerHTML = "";
+      
+      var user_name = document.getElementById("user_name").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var confirmed = document.getElementById("confirmed").value;
+      if(user_name == "") 
+      {
+        document.getElementById("user_info").innerHTML = "required";
+        $valid = false;
+      }
+      if(email == "") 
+      {
+        document.getElementById("email_info").innerHTML = "required";
+        $valid = false;
+      }
+      if(password == "") 
+      {
+        document.getElementById("password_info").innerHTML = "required";
+        $valid = false;
+      } else if(password.length < 6)
+      {
+        document.getElementById("password_info").innerHTML = "required at least 6 characters";
+        $valid = false;
+      }
+      if((confirmed == "") || (confirmed != password))
+      {
+        document.getElementById("confirmed_info").innerHTML = "confirm password";
+        $valid = false;
+      }
+      return $valid;
+    }
+  </script>
   
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
